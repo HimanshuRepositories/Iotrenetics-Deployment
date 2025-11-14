@@ -14,15 +14,15 @@ span{
   color: red;
 }
 
-/* Navbar */
+/* ------------------ NAVBAR ------------------ */
 .navbar {
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 80px;
-  overflow: visible;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 .navbar .container {
@@ -32,20 +32,16 @@ span{
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  position: relative;
 }
 
 .logo {
-  height: 130px;
-  position: relative;
-  top: -35px;
+  height: 80px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
-  margin-top: -40px;
+  gap: 25px;
 }
 
 .navbar a {
@@ -53,13 +49,14 @@ span{
   color: #222;
   font-weight: 500;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .navbar a:hover {
   color: #0067b8;
 }
 
-/* Hero */
+/* ------------------ HERO ------------------ */
 .hero {
   background: linear-gradient(120deg, #0067b8, #002e5d);
   color: white;
@@ -91,7 +88,7 @@ span{
   background: #e5e5e5;
 }
 
-/* Sections */
+/* ------------------ SECTIONS ------------------ */
 section {
   padding: 60px 20px;
 }
@@ -114,7 +111,7 @@ p {
   margin: auto;
 }
 
-/* Grids */
+/* ------------------ GRID ------------------ */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -137,7 +134,7 @@ p {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Mission Section */
+/* ------------------ MISSION ------------------ */
 .mission {
   background: #f9f9f9;
   padding: 60px 20px;
@@ -169,7 +166,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* Partners Section */
+/* ------------------ PARTNERS ------------------ */
 .partners {
   background: #f9f9f9;
   padding: 60px 20px;
@@ -209,7 +206,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* CTA section */
+/* ------------------ CTA ------------------ */
 .cta {
   background: linear-gradient(120deg, #0067b8, #002e5d);
   color: white;
@@ -253,7 +250,7 @@ p {
   color: #0067b8;
 }
 
-/* Footer */
+/* ------------------ FOOTER ------------------ */
 .footer {
   background: #002e5d;
   color: white;
@@ -262,90 +259,73 @@ p {
   font-size: 0.9rem;
 }
 
-/* ------------------ Responsive Media Queries ------------------ */
+/* ------------------ RESPONSIVE ------------------ */
 
-/* Tablets (width ≤ 992px) */
+/* Tablets ≤ 992px */
 @media (max-width: 992px) {
   .navbar ul {
-    gap: 12px;
+    gap: 15px;
   }
 
   .hero h1 {
     font-size: 2rem;
   }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .cta h2 {
-    font-size: 2rem;
-  }
-
-  .cta p {
-    font-size: 1rem;
-  }
-
-  .mission-grid,
-  .partners-grid,
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
 }
 
-/* Mobile Devices (width ≤ 768px) */
+/* Mobile ≤ 768px */
 @media (max-width: 768px) {
+
+  .navbar {
+    padding: 15px 0;
+  }
+
   .navbar .container {
     flex-direction: column;
-    height: auto;
-    padding: 15px 20px;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logo {
+    height: 70px;
   }
 
   .navbar ul {
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: -70px;
-    gap: 10px;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
   }
 
-  .logo {
-    height: 100px;
-    margin-top: 2%;
+  .navbar ul li {
+    flex: 1 1 30%;
+    text-align: center;
   }
 
-  .hero {
-    padding: 70px 15px;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-  }
-
-  .cta {
-    padding: 70px 15px;
-  }
-
-  .cta h2 {
-    font-size: 1.8rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .partners p,
-  .mission p {
-    font-size: 0.95rem;
+  .navbar ul li a {
+    display: block;
+    padding: 6px 0;
+    font-size: 0.9rem;
   }
 }
 
-/* Small Phones (width ≤ 480px) */
+/* Small Phones ≤ 480px */
 @media (max-width: 480px) {
+
+  .navbar ul li {
+    flex: 1 1 45%;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .navbar ul li a {
+    font-size: 0.85rem;
+  }
+
   .hero h1 {
     font-size: 1.5rem;
   }
@@ -353,17 +333,5 @@ p {
   .hero p,
   .cta p {
     font-size: 0.9rem;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    padding: 8px 18px;
-    font-size: 0.9rem;
-  }
-
-  .card,
-  .mission-card,
-  .partner-card {
-    padding: 18px;
   }
 }
