@@ -10,7 +10,7 @@ body {
   background: #fff;
 }
 
-span {
+span{
   color: red;
 }
 
@@ -293,36 +293,24 @@ p {
   }
 }
 
-/* Mobile Devices (width ≤ 768px)  */
+/* Mobile Devices (width ≤ 768px) */
 @media (max-width: 768px) {
-
-  .navbar {
-    height: auto;
-    padding-bottom: 10px;
-  }
-
   .navbar .container {
     flex-direction: column;
-    align-items: center;
-    padding: 10px 15px;
-  }
-
-  .logo {
-    height: 90px;
-    position: relative;
-    top: -10px;
-    margin-bottom: -10px;
+    height: auto;
+    padding: 15px 20px;
   }
 
   .navbar ul {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
-    margin: 0;
+    margin-top: -70px;
+    gap: 10px;
   }
 
-  .navbar ul li a {
-    font-size: 15px;
+  .logo {
+    height: 100px;
+    margin-top: 2%;
   }
 
   .hero {
