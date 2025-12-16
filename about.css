@@ -1,0 +1,673 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  color: #222;
+  background: #fff;
+}
+
+span {
+  color: red;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* NAVBAR*/
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  height: 130px;
+  position: relative;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #0067b8;
+}
+
+/* MINI HERO EXACT LIKE IMAGE*/
+.about-mini-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 0;
+  gap: 40px;
+  overflow: hidden;    
+}
+
+/* LEFT CONTENT */
+.about-mini-content {
+  max-width: 480px;
+}
+
+.about-mini-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.about-mini-content p {
+  margin-top: 14px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* BUTTON */
+.mini-btn {
+  margin-top: 22px;
+  padding: 10px 24px;
+  border: none;
+  background: #eee;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.mini-btn:hover {
+  background: #ddd;
+}
+
+/* RIGHT IMAGE */
+.about-mini-image {
+  flex-shrink: 0;      
+}
+
+.about-mini-image img {
+  width: 360px;
+  max-width: 100%;
+  opacity: 0.9;
+}
+
+
+/* STORY SECTION */
+.story {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.story h2 {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+}
+
+.story h2 span {
+  color: red;
+  font-weight: 700;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.story-grid h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-right: 30%;
+  
+}
+
+.story-grid p {
+  margin-top: 10px;
+  line-height: 1.6;
+  max-width: 330px;
+}
+.story-grid .p-grid{
+  text-align: center;
+  margin-left: 10%;
+}
+.pp-grid h3{
+  margin-left: 30%;
+}
+.pp-grid p{
+  margin-left: 20%;
+}
+
+/* TECHNOLOGY SECTION  */
+.tech-section {
+  margin-top: 70px;
+  text-align: center;
+}
+
+.tech-section h2 {
+  font-size: 1.6rem;
+}
+
+.tech-section h2 span {
+  color: red;
+  font-weight: 700;
+}
+
+.tech-section p {
+  max-width: 750px;
+  margin: 15px auto 40px auto;
+  line-height: 1.6;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.tech-card {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.tech-card:hover {
+  background: #efefef;
+  transform: translateY(-5px);
+}
+
+.tech-card img {
+  width: 70px;
+  margin-bottom: 12px;
+}
+
+.tech-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(120deg, #0067b8, #002e5d);
+  color: white;
+  text-align: center;
+  padding: 110px 20px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+/* ABOUT SECTION */
+.about {
+  padding: 60px 20px;
+}
+
+.about p {
+  max-width: 950px;
+  margin: auto;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* SECTIONS TITLE STYLE */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #002e5d;
+}
+
+/* GRID CARDS (Focus, Products, Industries)*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: lab(94.45% 0.01 -0.01);
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* MISSION SECTION */
+.mission {
+  background: #f9f9f9;
+  padding: 70px 20px;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.mission-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.mission-card h3 {
+  color: #002e5d;
+  margin-bottom: 10px;
+}
+
+/* PARTNERS SECTION */
+.partners {
+  background: #f9f9f9;
+  padding: 70px 20px;
+}
+
+.partners p {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.partner-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: 0.3s;
+}
+
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+.partner-card h3 {
+  color: #002e5d;
+  margin-bottom: 10px;
+}
+
+/* ============================
+   OUR IMPACT SECTION
+============================ */
+
+.impact-section {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.impact-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+
+.impact-section h2 span {
+  color: red;
+  font-weight: 700;
+}
+
+/* Grid layout */
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  position: relative;
+}
+
+/* Cards */
+/* Impact Cards  */
+.impact-card {
+  background: #f3f3f3;
+  padding: 40px 35px;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 420px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.highlight {
+  color: red;
+  font-weight: 700;
+}
+.impact-card.left {
+  justify-self: start;
+}
+
+.impact-card.right {
+  justify-self: end;
+}
+
+.impact-card.center {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 30px;
+  max-width: 460px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 60px;
+}
+
+.testimonials-section h2 span {
+  color: #e53935;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  background: #f3f3f3;
+  padding: 40px 35px;
+  text-align: left;
+  border-radius: 6px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.testimonial-card .highlight {
+  color: #e53935;
+  font-weight: 600;
+}
+
+.testimonial-card h4 {
+  margin-top: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+/* Our Team Section */
+.our-team-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.our-team-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 60px;
+}
+
+.our-team-section h2 span {
+  color: #e53935;
+}
+
+/* Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* Outer Card  */
+.team-card {
+  background: #f3f3f3;
+  padding: 25px;
+  border-radius: 6px;
+  display: flex;              
+  align-items: stretch;       
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+}
+
+/* INNER WHITE BOX */
+.team-content {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 4px;
+  text-align: left;
+  line-height: 1.7;
+  flex: 1;                    
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Title */
+.team-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+
+.team-content .highlight {
+  color: black;
+}
+
+/* ============================
+   CTA SECTION
+============================ */
+.cta {
+  background: linear-gradient(120deg, #0067b8, #002e5d);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cta h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #0067b8;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+}
+
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #0067b8;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+  background: #002e5d;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .impact-card,
+  .impact-card.center {
+    max-width: 100%;
+    justify-self: center;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .navbar ul {
+    gap: 15px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar ul {
+    margin-top: -20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 100px;
+    top: 0;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-mini-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-mini-image img {
+    width: 280px;
+    margin-top: 30px;
+  }
+}
