@@ -196,19 +196,21 @@ span {
 .ecosystem-wrapper {
     position: relative;
     max-width: 1100px;
-    margin: auto;
 }
 
 .ecosystem-wrapper img {
-    width: 100%;
-    border-radius: 160px;
+    width: 80%;
+    border-radius: 600px;
     display: block;
+    height: 10%;
+    text-align: center;
+    margin-left: 10%;
 }
 
 /* TEXT OVER IMAGE */
 .ecosystem-text {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
