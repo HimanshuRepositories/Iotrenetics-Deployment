@@ -12,47 +12,41 @@ body {
 
 /* Navbar */
 .navbar {
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  height: 80px;
-  overflow: visible;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
 }
 
 .navbar .container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .logo {
-  height: 130px;
-  position: relative;
-  top: -35px;
+    height: 130px;
+    position: relative;
 }
 
 .navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin-top: -40px;
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
 .navbar a {
-  text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  transition: color 0.3s;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 .navbar a:hover {
-  color: #0067b8;
+    color: #0067b8;
 }
 
 
@@ -301,15 +295,18 @@ p {
   .navbar ul {
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: -70px;
+    margin-top: -50px;
     gap: 10px;
   }
 
   .logo {
     height: 100px;
-    margin-top: 2%;
+    margin-top: -3%;
   }
 
+  .navs{
+    margin-top: 6%;
+  }
   .hero {
     padding: 70px 15px;
   }
