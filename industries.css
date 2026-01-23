@@ -1,0 +1,529 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  color: #222;
+  background: #fff;
+}
+
+span {
+  color: red;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* NAVBAR*/
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  height: 130px;
+  position: relative;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #0067b8;
+}
+
+
+/* Headings */
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.section-title span {
+  color: #e53935;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Content layout */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 60px;
+  gap: 40px;
+}
+
+/* Left side */
+.left {
+  width: 55%;
+}
+
+.industry-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.industry-title img {
+  width: 55px;
+}
+
+.industry-title h3 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.description {
+  margin: 20px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.left ul {
+  padding-left: 25px;
+}
+
+.left ul li {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Right GIF */
+.right {
+  width: 45%;
+}
+
+.gif-box {
+  position: relative;
+}
+
+.gif-box img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* GIF label */
+.gif-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #777;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Solutions */
+.solutions-title {
+  text-align: center;
+  font-size: 32px;
+  color: black;
+  margin: 60px 0 30px;
+}
+
+.solutions {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.solutions button {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 15px 45px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.solutions button:hover {
+  background: #c62828;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .industry-title h3 {
+    font-size: 30px;
+  }
+}
+
+/* TEXT BACKGROUND */
+.text-box {
+  background: #f5f5f5;
+  padding: 35px 40px;
+  border-radius: 8px;
+  transition: all 0.35s ease;
+}
+
+/* Hover Effect */
+.text-box:hover {
+  background: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Text inside box */
+.text-box p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.text-box ul {
+  padding-left: 20px;
+}
+
+.text-box ul li {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .text-box {
+    padding: 25px 20px;
+    text-align: center;
+    border-left: none;
+  }
+
+  .text-box:hover {
+    transform: none; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-box ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  .text-box p {
+    font-size: 17px;
+  }
+
+  .text-box ul li {
+    font-size: 16px;
+  }
+}
+
+/* ============================
+   CTA SECTION
+============================ */
+.cta {
+  background: linear-gradient(120deg, #0067b8, #002e5d);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cta h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+}
+
+.cta p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #0067b8;
+}
+
+.btn-primary:hover {
+  background: #e5e5e5;
+}
+
+.btn-secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #0067b8;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+  background: #002e5d;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .impact-card,
+  .impact-card.center {
+    max-width: 100%;
+    justify-self: center;
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .navbar ul {
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar ul {
+    margin-top: -20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 100px;
+    top: 0;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===========================
+ RESPONSIVE 
+=========================== */
+
+/* Tablets & below */
+@media (max-width: 992px) {
+
+  .section-title {
+    font-size: 34px;
+  }
+
+  .industry-title h3 {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .left ul li {
+    font-size: 16px;
+  }
+
+  .solutions button {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+
+  .industry-title {
+    justify-content: center;
+  }
+
+  .industry-title img {
+    width: 45px;
+  }
+
+  .industry-title h3 {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .left ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  .left ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .gif-box img {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .solutions {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .solutions button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .cta {
+    padding: 70px 20px;
+  }
+
+  .cta h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  .industry-title h3 {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .left ul li {
+    font-size: 14.5px;
+  }
+
+  .solutions-title {
+    font-size: 24px;
+  }
+
+  .solutions button {
+    font-size: 15px;
+    padding: 11px 20px;
+  }
+
+  .cta h2 {
+    font-size: 1.6rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+}
