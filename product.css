@@ -58,7 +58,37 @@ span {
 .navbar a:hover {
     color: #0067b8;
 }
+/* Finexa */
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+}
 
+.section-title span {
+  color: #e53935;
+}
+.solutions-new {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.solutions-new button {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  padding: 15px 45px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: -10%;
+}
+
+.solutions-new button:hover {
+  background: #c62828;
+}
+/* Finexa */
 /* ============================
    OUR SOLUTIONS SECTION
 ============================ */
@@ -483,3 +513,4 @@ span {
         flex-direction: column;
     }
 }
+
