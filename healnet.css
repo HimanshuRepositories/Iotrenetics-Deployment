@@ -1,0 +1,682 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    color: #222;
+    background: #fff;
+}
+
+span {
+    color: red;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* NAVBAR*/
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    height: 130px;
+    position: relative;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #0067b8;
+}
+
+
+.red {
+    color: #ff3b30;
+}
+
+.health-section {
+    padding: 60px 80px;
+}
+.top-content {
+    max-width: 1100px;
+    margin-bottom: 60px;
+}
+
+.heading {
+    text-align: center;
+    margin-left: 10%;
+    margin-top: -5%;
+}
+
+.top-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.top-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 900px;
+    text-align: center;
+        margin-left: 15%;
+}
+
+/* MAIN CONTAINER */
+.health-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* LEFT */
+.health-left {
+    flex: 1;
+}
+
+.health-left h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.health-left p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.health-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.gray {
+    background: #d9d9d9;
+}
+
+.btn.outline {
+    background: #d9d9d9;
+    font-weight: 600;
+}
+
+/* RIGHT */
+.health-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.health-right img {
+    width: 100%;
+    max-width: 520px;
+}
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn.gray:hover {
+  background: #cfcfcf;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.btn.outline:hover {
+  background: #bfbfbf;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .health-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .health-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .health-section {
+        padding: 40px 20px;
+    }
+
+    .top-content h1 {
+        font-size: 26px;
+    }
+
+    .health-left h2 {
+        font-size: 24px;
+    }
+}
+.what-section {
+  padding: 70px 80px;
+  background: #fff;
+}
+
+.what-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* IMAGE LEFT */
+.what-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.what-right img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.what-right img:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* TEXT RIGHT */
+.what-left {
+  flex: 1;
+}
+
+.what-left h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.what-left h2 span {
+  color: #ff3b30;
+}
+
+.what-left p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.what-left strong {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .what-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .what-section {
+    padding: 40px 20px;
+  }
+
+  .what-left h2 {
+    font-size: 26px;
+  }
+
+  .what-left p {
+    font-size: 16px;
+  }
+}
+
+.capabilities-section {
+  padding: 60px 80px;
+  text-align: center;
+}
+
+.capabilities-section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.capabilities-section h2 span {
+  color: #e53935;
+}
+
+.capabilities-box {
+  background: #f5f5f5;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 30px;
+}
+
+.capability {
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.capability:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+.capability:hover {
+  background: white;
+  border-radius: 20px;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.title h3 {
+  font-size: 24px;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.icon-box img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.capability:hover .icon-box {
+  background: #f5f5f5;
+}
+.capability ul {
+  padding-left: 20px;
+}
+
+.capability li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .capabilities-box {
+    flex-direction: column;
+  }
+
+  .capability {
+    border-right: none !important;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .capability:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .capabilities-section {
+    padding: 40px 20px;
+  }
+
+  .capabilities-section h2 {
+    font-size: 30px;
+  }
+
+  .title h3 {
+    font-size: 20px;
+  }
+
+  .capability li {
+    font-size: 16px;
+  }
+}
+
+.health-action{
+  padding:60px 80px;
+  text-align:center;
+}
+
+.health-action h2{
+  font-size:38px;
+  margin-bottom:40px;
+}
+
+.health-action h2 span{
+  color:#e53935;
+}
+
+.health-box{
+  background:#f5f5f5;
+  border-radius:25px;
+  display:flex;
+  padding:40px;
+  gap:30px;
+  margin-bottom:60px;
+}
+
+.health-card{
+  flex:1;
+  text-align:left;
+  padding:20px;
+}
+
+.health-card:not(:last-child){
+  border-right:1px solid #ccc;
+}
+
+.card-title{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.card-title img{
+  width:45px;
+}
+
+.card-title h3{
+  font-size:24px;
+}
+
+.health-card ul{
+  padding-left:20px;
+}
+
+.health-card li{
+  font-size:18px;
+  margin-bottom:10px;
+}
+.transform-section{
+  margin-bottom:40px;
+}
+
+.transform-section h2{
+  margin-bottom:15px;
+}
+
+.transform-section p{
+  font-size:20px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.transform-section p span{
+  color:#e53935;
+  font-weight:bold;
+}
+
+.dashboard img{
+  width:100%;
+  max-width:1000px;
+  border-radius:15px;
+  margin:30px 0;
+}
+
+.talk-btn a{
+  display:inline-block;
+  background:#d9d9d9;
+  padding:20px 80px;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
+  color:black;
+  transition:0.3s;
+}
+
+.talk-btn a:hover{
+  background:#e53935;
+  color:white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+  .health-box{
+    flex-direction:column;
+  }
+
+  .health-card{
+    border-right:none !important;
+    border-bottom:1px solid #ccc;
+  }
+
+  .health-card:last-child{
+    border-bottom:none;
+  }
+}
+
+@media(max-width:600px){
+  .health-action{
+    padding:40px 20px;
+  }
+
+  .health-action h2{
+    font-size:28px;
+  }
+
+  .health-card li{
+    font-size:16px;
+  }
+
+  .talk-btn a{
+    padding:15px 50px;
+    font-size:18px;
+  }
+}
+
+.health-card{
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.health-card:hover{
+  background: white;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.card-title img{
+  width:45px;
+  padding:10px;
+  border-radius:50%;
+  background:#ffffff;
+  transition:0.3s;
+}
+
+.health-card:hover .card-title img{
+  background: #f5f5f5;
+}
+
+
+.health-card:not(:last-child){
+  border-right:1px solid #d0d0d0;
+}
+
+.dashboard img{
+  transition:0.4s ease;
+}
+
+.dashboard img:hover{
+  transform: scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.talk-btn a{
+  position:relative;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.talk-btn a:hover{
+  background:#e53935;
+  color:white;
+  box-shadow:0 10px 25px rgba(229,57,53,0.4);
+}
+
+/* ============================
+   CTA SECTION
+============================ */
+.cta {
+    background: linear-gradient(120deg, #0067b8, #002e5d);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.cta h2 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #0067b8;
+}
+
+.btn-primary:hover {
+    background: #e5e5e5;
+}
+
+.btn-secondary {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: #0067b8;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+    background: #002e5d;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .navbar ul {
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .navbar ul {
+        margin-top: -20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 100px;
+        top: 0;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .hero {
+        padding: 80px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+}
