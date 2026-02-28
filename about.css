@@ -590,6 +590,77 @@ h2 {
   font-size: 0.9rem;
 }
 
+/* For Navbar repsonsive */
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle {
+  width: 30px;
+  height: 22px;
+  display: none;            
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;           
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 80px;             
+    right: 0;
+    width: 100%;
+    background: #fff;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+  }
+}
+/* For Navbar repsonsive */
+
 /* ============================
    RESPONSIVE DESIGN
 ============================ */
