@@ -10,22 +10,29 @@
 
 <body>
   <!-- Header -->
-  <header class="navbar">
-    <div class="container">
-      <img src="IOT.png" alt="IoTrenetics Logo" class="logo" />
-      <nav class="navs">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="Solutions.html">Solutions</a></li>
-          <li><a href="product.html">Products</a></li>
-          <li><a href="industries.html">Industries</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header class="navbar">
+        <div class="container">
+            <img src="IOT.png" alt="IoTrenetics Logo" class="logo" />
+
+            <!-- Menu Icon -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Solutions.html">Solutions</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="industries.html">Industries</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -37,17 +44,38 @@
   </section>
 
   <!-- About Section -->
-  <section class="about">
-    <div class="container">
-      <h2><span style="color: red;">Abo</span>ut Us</h2>
-      <p>IoTrenetics Solutions Pvt. Ltd. is an innovative technology startup working at the intersection of IoT, AI,
-        Generative AI, AR/VR, and Digital Transformation. Our mission is to build intelligent, connected, and
-        sustainable systems that empower industries and communities to make smarter decisions.</p>
+  <section class="about-section">
+    <div class="about-container">
+
+      <!-- LEFT CONTENT -->
+      <div class="about-text">
+        <div class="about-title">
+          <h3>About <span>Us</span></h3>
+        </div>
+
+        <p>
+          IoTrenetics Solutions Pvt. Ltd. is an innovative technology startup
+          working at the intersection of IoT, AI, Generative AI, AR/VR,
+          and Digital Transformation. Our mission is to build intelligent,
+          connected, and sustainable systems that empower industries and
+          communities to make smarter decisions.
+        </p>
+
+        <button class="learn-btn">Learn <span>More</span></button>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="main 1.png" alt="IoTrenetics Illustration">
+      </div>
+
     </div>
+
+    <h2 class="bottom-text">Empowering Innovation Through Technology</h2>
   </section>
 
   <!-- Core Focus Areas -->
-  <section class="focus">
+  <!-- <section class="focus">
     <div class="container">
       <h2><span style="color: red;">Cor</span>e Focus Areas</h2>
       <div class="grid">
@@ -58,9 +86,66 @@
         <div class="card">Digital Transformation Systems</div>
       </div>
     </div>
+  </section> -->
+  <section class="core-focus">
+    <h2><span>Core</span> Focus Areas</h2>
+
+    <div class="focus-grid">
+      <div class="box box1"><img src="core 1.png" />
+        <div class="card">IoT-Driven Automation</div>
+      </div>
+      <div class="box box2" ><img src="core 2.png" />
+        <div class="card" style="margin-top: 13%;">AI & Generative AI Solutions</div>
+      </div>
+      <div class="box box3"><img src="core 3.png" />
+        <div class="card" style="margin-top: 23%;">Video Analytics & Computer Vision</div>
+      </div>
+      <div class="box box4"><img src="core 4.png" /><br>
+        <div class="card" >AR/VR & Immersive Technologies</div>
+      </div>
+      <div class="box box5"><img src="core 5.png" />
+        <div class="card"style="margin-top: 17%;">Digital Transformation Systems</div>
+      </div>
+    </div>
   </section>
 
-  <!-- Products -->
+  <!-- Industries -->
+  <!-- <section class="industries">
+    <div class="container">
+      <h2><span style="color: red;">Ind</span>ustries We Serve</h2>
+      <div class="grid">
+        <div class="card">Healthcare & MedTech</div>
+        <div class="card">Industrial Automation</div>
+        <div class="card">Smart Cities</div>
+        <div class="card">Energy & Utilities</div>
+        <div class="card">Education & Training</div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="core-focus">
+      <h2><span style="color: red;">Ind</span>ustries We Serve</h2>
+
+    <div class="focus-grid">
+      <div class="box box1"><img src="core 6.png" />
+        <div class="card" style="margin-top: 5%;">Healthcare & MedTech</div>
+      </div>
+      <div class="box box2" ><img src="core 7.png" />
+        <div class="card" style="margin-top: 13%;">Industrial Automation</div>
+      </div>
+      <div class="box box3"><img src="core 8.png" />
+        <div class="card" style="margin-top: 9%;">Video Analytics & Computer Vision</div>
+      </div>
+      <div class="box box4"><img src="core 9.png" /><br>
+        <div class="card" style="margin-top: 5%;">AR/VR & Immersive Technologies</div>
+      </div>
+      <div class="box box5"><img src="core 10.png" />
+        <div class="card"style="margin-top: 6%;">Digital Transformation Systems</div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Products -->
   <section class="products">
     <div class="container">
       <h2><span style="color: red;">Pro</span>duct Portfolio</h2>
@@ -70,20 +155,6 @@
         <div class="card">Agentra – AI Teammates for Business</div>
         <div class="card">Privora – Private LLM Platform</div>
         <div class="card">VisiAI – Smart Video Analytics</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industries -->
-  <section class="industries">
-    <div class="container">
-      <h2><span style="color: red;">Ind</span>ustries We Serve</h2>
-      <div class="grid">
-        <div class="card">Healthcare & MedTech</div>
-        <div class="card">Industrial Automation</div>
-        <div class="card">Smart Cities</div>
-        <div class="card">Energy & Utilities</div>
-        <div class="card">Education & Training</div>
       </div>
     </div>
   </section>
@@ -160,6 +231,7 @@
       <p>© 2026 IoTrenetics Solutions Pvt. Ltd. | Intelligence in Motion.</p>
     </div>
   </footer>
+  <script src="main.js"></script>
 </body>
 
 </html>
