@@ -120,11 +120,34 @@ body {
   color: #e53935;
 }
 
-.about-text p {
+.about-text p{
+  background: #f2f2f2;
   font-size: 18px;
-  line-height: 1.7;
-  color: #111;
-  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 20px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.about-text p:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  background: #ffffff;
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .about-text p{
+    padding:20px;
+    font-size:16px;
+    margin:15px;
+  }
 }
 
 /* BUTTON */
@@ -182,10 +205,10 @@ body {
   .about-title {
     justify-content: center;
     text-align: center;
-    margin-right: 20%;
+    margin-right: 28%;
   }
   .learn-btn{
-    margin-right:25%;
+    margin-right: 35%;
   }
 }
 /*  */
@@ -284,7 +307,6 @@ p {
   color: red;
 }
 
-/* DESKTOP & LARGE SCREENS */
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
