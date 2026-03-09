@@ -87,6 +87,7 @@ span {
     font-size: 1.05rem;
     color: #444;
 }
+
 .solution-box {
     display: flex;
     align-items: center;
@@ -100,7 +101,7 @@ span {
     border-radius: 10px;
 }
 
-.solution-content a{
+.solution-content a {
     color: #222;
     margin-left: 27%;
 }
@@ -134,6 +135,7 @@ span {
     color: #222;
     text-align: justify;
 }
+
 .solution-btn {
     display: inline-block;
     padding: 14px 34px;
@@ -158,9 +160,11 @@ span {
     max-width: 500px;
     width: 80%;
 }
-.solution-content-three{
+
+.solution-content-three {
     margin-top: 15%;
 }
+
 .solution-box.reverse {
     flex-direction: row-reverse;
     margin-top: 15%;
@@ -237,73 +241,75 @@ span {
 
 /* For Navbar repsonsive */
 .navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 .menu-toggle {
-  width: 30px;
-  height: 22px;
-  display: none;            
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 9999;
+    width: 30px;
+    height: 22px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
 }
 
 .menu-toggle span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #000;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  transform-origin: center;
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
 }
 
 
 .menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .menu-toggle.active span:nth-child(2) {
-  opacity: 0;
+    opacity: 0;
 }
 
 .menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
+
 @media (max-width: 768px) {
 
-  .menu-toggle {
-    display: flex;           
-  }
+    .menu-toggle {
+        display: flex;
+    }
 
-  nav {
-    display: none;
-    position: absolute;
-    top: 80px;             
-    right: 0;
-    width: 100%;
-    background: #fff;
-  }
+    nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: #fff;
+    }
 
-  nav.active {
-    display: block;
-  }
+    nav.active {
+        display: block;
+    }
 
-  .navbar ul {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
-  }
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+    }
 }
+
 /* For Navbar repsonsive */
 
 /* responive */
@@ -430,10 +436,32 @@ span {
     font-weight: 700;
     text-decoration: none;
     transition: 0.3s;
+    font-size: 16px;
 }
 
+/* Hover */
 .solution-btn:hover {
     background: #d8d8d8;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .solution-btn {
+        padding: 12px 28px;
+        font-size: 15px;
+        margin-right: 25%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .solution-btn {
+        padding: 10px 22px;
+        font-size: 14px;
+        display: inline-block;
+        text-align: center;
+        margin-right: 25%;
+    }
 }
 
 /* Right Image */
@@ -461,6 +489,7 @@ span {
 }
 
 @media (max-width: 768px) {
+
     .solution-box,
     .solution-box.reverse {
         flex-direction: column;
