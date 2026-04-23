@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Automation | Iotrenetics</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hotel.css">
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>ELEVATING GUEST EXPERIENCES THROUGH INTELLIGENT AUTOMATION</h1>
+            <p>Deliver seamless comfort, personalized control, and operational efficiency — all from a unified smart
+                platform.</p>
+            <div class="tag">Luxury Meets Intelligence.</div>
+            <button class="btn btn-primary">Request Demo</button>
+            <button class="btn btn-secondary">Download Deck</button>
+        </div>
+    </section>
+
+    <div class="trust">Trusted for Smart Hospitality & Luxury Automation</div>
+
+    <!-- VALUE -->
+    <section class="section">
+        <div class="container center">
+            <h2>Transform Every Room into a Smart Experience</h2>
+            <p>Enhance guest comfort while optimizing operations — automation that works behind the scenes and impresses
+                upfront.</p>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section">
+        <div class="container">
+            <h2 class="center">Core Features</h2>
+            <div class="grid">
+                <div class="card">Smart Room Control<br><small>Control lighting, AC & scenes seamlessly</small></div>
+                <div class="card">Central Dashboard<br><small>Monitor all rooms in one place</small></div>
+                <div class="card">Energy Management<br><small>Reduce wastage automatically</small></div>
+                <div class="card">Guest Experience<br><small>Personalized room automation</small></div>
+                <div class="card">Security & Access<br><small>Smart locks & entry control</small></div>
+                <div class="card">Housekeeping<br><small>Real-time room status updates</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="section">
+        <div class="container">
+
+            <div class="split">
+                <img src="hotel1.png">
+                <div class="split-text">
+                    <h3>Smart Hotel Rooms</h3>
+                    <ul>
+                        <li>Scene-based automation</li>
+                        <li>Smart lighting & curtains</li>
+                        <li>Occupancy-based AC</li>
+                        <li>DND / MMR control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="split reverse">
+                <img src="hotel2.png">
+                <div class="split-text">
+                    <h3>Luxury Suites & Resorts</h3>
+                    <ul>
+                        <li>Mood lighting scenes</li>
+                        <li>Voice-enabled control</li>
+                        <li>Outdoor automation</li>
+                        <li>Guest presets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="split">
+                <img src="hotel3.png">
+                <div class="split-text">
+                    <h3>Operations & Backend</h3>
+                    <ul>
+                        <li>Housekeeping tracking</li>
+                        <li>Room occupancy monitoring</li>
+                        <li>Central dashboard</li>
+                        <li>Staff alerts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="split reverse">
+                <img src="hotel5.png">
+                <div class="split-text">
+                    <h3>Security & Access</h3>
+                    <ul>
+                        <li>RFID / mobile access</li>
+                        <li>Smart locks</li>
+                        <li>Access logs</li>
+                        <li>Restricted zones</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="split">
+                <img src="hotel4.png">
+                <div class="split-text">
+                    <h3>Conference & Banquet</h3>
+                    <ul>
+                        <li>Lighting presets</li>
+                        <li>AV automation</li>
+                        <li>Projector sync</li>
+                        <li>Event modes</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <section class="section integrations">
+        <div class="container center">
+            <h2>Advanced Integrations</h2>
+            <div class="icons">
+                <div class="icon">PMS</div>
+                <div class="icon">IoT Sensors</div>
+                <div class="icon">Voice Assistants</div>
+                <div class="icon">Cloud Systems</div>
+                <div class="icon">Analytics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section">
+        <div class="container center">
+            <h2>Why Choose Us</h2>
+            <div class="why">
+                <div>Designed for Hospitality</div>
+                <div>Enterprise Grade Systems</div>
+                <div>Seamless Experience</div>
+                <div>Custom Room Logic</div>
+                <div>End-to-End Execution</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section">
+        <div class="container">
+            <h2 class="center">Results That Matter</h2>
+            <div class="results">
+                <div class="result">
+                    <h2 data-count="40">0</h2>
+                    <p>Energy Savings</p>
+                </div>
+                <div class="result">
+                    <h2 data-count="2">0</h2>
+                    <p>Faster Turnaround</p>
+                </div>
+                <div class="result">
+                    <h2 data-count="100">0</h2>
+                    <p>Central Control</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Ready to Upgrade Your Hotel Experience?</h2>
+        <button class="btn btn-primary">Get Consultation</button>
+        <button class="btn btn-secondary">Speak to Expert</button>
+    </section>
+
+
+    <script>
+
+        const sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', () => {
+            sections.forEach(sec => {
+                if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+                    sec.classList.add('show');
+                }
+            });
+        });
+        document.querySelectorAll('.card').forEach((c, i) => {
+            setTimeout(() => c.classList.add('show'), i * 150);
+        });
+        const animateValue = (el, start, end, duration) => {
+            let startTime = null;
+
+            const step = (currentTime) => {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+
+                el.innerText = Math.floor(progress * (end - start) + start);
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            };
+
+            requestAnimationFrame(step);
+        };
+
+        let started = false;
+
+        window.addEventListener('scroll', () => {
+            const trigger = document.querySelector('.results').offsetTop;
+
+            if (window.scrollY > trigger - 400 && !started) {
+                document.querySelectorAll('[data-count]').forEach(el => {
+                    animateValue(el, 0, parseInt(el.dataset.count), 1200);
+                });
+                started = true;
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
