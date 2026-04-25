@@ -448,3 +448,190 @@ html {
 .why div:hover {
     transform: translateY(-8px) scale(1.03);
 }
+
+/* GLOBAL HOVER SMOOTHNESS */
+* {
+    transition: all 0.3s ease;
+}
+
+/* IMAGE ANIMATION */
+img {
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+img:hover {
+    transform: scale(1.08) rotate(0.5deg);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* CARD ADVANCED HOVER */
+.card {
+    transform: perspective(1000px) translateY(0) scale(1);
+}
+
+.card:hover {
+    transform: perspective(1000px) translateY(-15px) scale(1.03) rotateX(3deg);
+}
+
+/* SPLIT BOX ANIMATION */
+.split-text {
+    transition: all 0.4s ease;
+}
+
+.split-text:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* FLOW STEP ANIMATION */
+.flow-step {
+    position: relative;
+    overflow: hidden;
+}
+
+.flow-step::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(212,175,55,0.15), transparent);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.flow-step:hover::after {
+    opacity: 1;
+}
+
+/* TRUST CARD ANIMATION */
+.trust-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(212,175,55,0.2), transparent);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.trust-card:hover::before {
+    opacity: 1;
+}
+
+/* BUTTON PREMIUM EFFECT */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.06);
+}
+
+/* BUTTON CLICK EFFECT */
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* SECTION FADE + SLIDE ENHANCED */
+.section {
+    transition: all 1s ease;
+}
+
+/* HERO PARALLAX FEEL */
+.hero {
+    background-attachment: fixed;
+}
+
+/* SMOOTH SCROLL FEEL */
+html {
+    scroll-behavior: smooth;
+}
+
+/* LIST ITEMS ANIMATION */
+.split-text li {
+    transition: all 0.3s ease;
+}
+
+.split-text li:hover {
+    transform: translateX(8px);
+    color: var(--gold);
+}
+
+.flow-number {
+    transition: transform 0.4s ease;
+}
+
+.flow-step:hover .flow-number {
+    transform: scale(1.2);
+}
+
+.trust-card h4 {
+    transition: 0.3s;
+}
+
+.trust-card:hover h4 {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* CARD GLOW EFFECT */
+.card:hover {
+    box-shadow: 0 30px 80px rgba(212, 175, 55, 0.25);
+}
+
+.split:hover img {
+    transform: scale(1.1) translateY(-8px);
+}
+
+.cta .btn-primary:hover {
+    box-shadow: 0 15px 60px rgba(212,175,55,0.6);
+}
+
+/* PAGE LOAD FADE */
+body {
+    animation: pageFade 0.8s ease;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* INITIAL STATE */
+.flow-step,
+.trust-card {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* SHOW */
+.flow-step.show,
+.trust-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.flow-step.active,
+.trust-card.active {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+.flow-step.show:hover,
+.trust-card.show:hover {
+    transform: translateY(-10px) scale(1.05) !important;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2) !important;
+}
+
+.flow-step,
+.trust-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
