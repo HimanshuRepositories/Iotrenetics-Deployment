@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #050505;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* BUTTON */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+.glass-card,
+.mode,
+.why-box,
+.reveal {
+    opacity: 1;
+}
+
+.primary {
+    background: #d4af37;
+    color: black;
+}
+
+.secondary {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    position: relative;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    margin: 20px 0;
+    opacity: 0.8;
+}
+
+/* STORY */
+.story {
+    padding: 120px 10%;
+    text-align: center;
+}
+
+/* GLASS CARDS */
+.glass-section {
+    display: flex;
+    gap: 20px;
+    padding: 80px 10%;
+    flex-wrap: wrap;
+}
+
+.glass-card {
+    flex: 1 1 200px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.glass-card:hover {
+    transform: translateY(-15px);
+}
+
+/* PARALLAX */
+.parallax {
+    height: 60vh;
+    background: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e') center/cover fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.parallax::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), transparent);
+    z-index: 1;
+}
+
+/* SPLIT */
+.split {
+    display: flex;
+    gap: 50px;
+    padding: 100px 10%;
+    align-items: center;
+}
+
+.split img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.split .text {
+    width: 50%;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* WAVE */
+.wave-section {
+    height: 300px;
+    position: relative;
+    text-align: center;
+}
+
+#wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 50px;
+}
+
+.gallery img {
+    width: 100%;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.why {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.why-box {
+    padding: 30px;
+    background: #111;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.why-box:hover {
+    background: #d4af37;
+    color: black;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.smart {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.mode {
+    padding: 20px 30px;
+    background: #111;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.mode:hover {
+    background: #d4af37;
+    color: black;
+}
+
+.cta {
+    text-align: center;
+    padding: 100px;
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent);
+    top: -100px;
+    right: -100px;
+    filter: blur(80px);
+}
+
+/* STICKY CTA */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #000;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* FLOAT BUTTON */
+.floating-btn {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px 20px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+
+    .split {
+        flex-direction: column;
+    }
+
+    .split img,
+    .split .text {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+}
+
+.glass-card {
+    flex: 1 1 200px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.glass-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+}
+
+.hero {
+    background: radial-gradient(circle at top, #0a0a0a, #000);
+    overflow: hidden;
+}
+
+/* PARTICLES CANVAS */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    z-index: 3;
+}
+
+.overlay {
+    z-index: 2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.split img {
+    transition: 0.6s;
+}
+
+.split img:hover {
+    transform: scale(1.05);
+}
+
+.text h3,
+.text p {
+    transition: 0.4s;
+}
+
+.wave-section h2 {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 2s ease infinite alternate;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+.floating-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Audio Video Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="av.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+<video autoplay muted loop playsinline>
+</video>
+<canvas id="particles"></canvas>
+<div class="overlay"></div>
+<div class="hero-content">
+<h1 class="reveal">Experience Sound.<br>Feel Every Moment.</h1>
+<p class="reveal">Cinema-quality luxury for your home</p>
+<div class="reveal">
+<button class="btn primary magnetic">Book Demo</button>
+<button class="btn secondary magnetic">Explore</button>
+</div>
+</div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+<h2 class="reveal">Designed for Luxury Living</h2>
+<p class="reveal">Every detail engineered for immersive experiences</p>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="glass-section">
+<div class="glass-card">Home Theatre</div>
+<div class="glass-card">Multi Room Audio</div>
+<div class="glass-card">Outdoor Audio</div>
+<div class="glass-card">Media Rooms</div>
+</section>
+
+<!-- PARALLAX -->
+<section class="parallax">
+Feel the Depth of Sound
+</section>
+
+<!-- SPLIT -->
+<section class="split">
+<img src="av1.png">
+<div class="text">
+<h3>Home Theatre</h3>
+<p>Cinema-quality sound in your home</p>
+</div>
+</section>
+
+<section class="split reverse">
+<img src="av2.png">
+<div class="text">
+<h3>Whole Home Audio</h3>
+<p>Music flows through every room seamlessly</p>
+</div>
+</section>
+
+<section class="why">
+    <h2 class="reveal">Why TruAudio</h2>
+
+    <div class="why-grid">
+        <div class="why-box reveal">Premium US Brand</div>
+        <div class="why-box reveal">Architectural Speakers</div>
+        <div class="why-box reveal">Luxury Experience</div>
+        <div class="why-box reveal">Crystal Clear Sound</div>
+    </div>
+</section>
+
+<section class="smart">
+    <h2 class="reveal">Smart Home Integration</h2>
+
+    <div class="modes">
+        <div class="mode reveal">Movie Night</div>
+        <div class="mode reveal">Party Mode</div>
+        <div class="mode reveal">Relax Mode</div>
+    </div>
+</section>
+
+<!-- WAVE -->
+<section class="wave-section">
+<canvas id="wave"></canvas>
+<h2>Sound You Can See</h2>
+</section>
+
+<!-- GALLERY -->
+<!-- <section class="gallery">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+</section> -->
+
+<!-- CTA -->
+<section class="cta">
+<h2>Ready to transform your space?</h2>
+<button class="btn primary magnetic">Book Consultation</button>
+</section>
+
+<!-- FLOAT -->
+<a href="#" class="floating-btn">WhatsApp</a>
+
+<script>
+
+// GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".reveal").forEach(el=>{
+gsap.from(el,{
+scrollTrigger:el,
+y:80,
+opacity:0,
+duration:1
+});
+});
+
+// MAGNETIC BUTTON
+document.querySelectorAll(".magnetic").forEach(btn=>{
+btn.addEventListener("mousemove",(e)=>{
+const rect = btn.getBoundingClientRect();
+const x = e.clientX - rect.left - rect.width/2;
+const y = e.clientY - rect.top - rect.height/2;
+btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
+});
+btn.addEventListener("mouseleave",()=>{
+btn.style.transform = "translate(0,0)";
+});
+});
+
+// SOUND WAVE
+const canvas = document.getElementById("wave");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = 300;
+
+let t = 0;
+
+function wave(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.beginPath();
+
+for(let x=0;x<canvas.width;x++){
+let y = canvas.height/2 + Math.sin((x+t)*0.02)*40;
+ctx.lineTo(x,y);
+}
+
+ctx.strokeStyle = "#d4af37";
+ctx.stroke();
+
+t += 2;
+requestAnimationFrame(wave);
+}
+
+wave();
+const canvasP = document.getElementById("particles");
+const ctxP = canvasP.getContext("2d");
+
+canvasP.width = window.innerWidth;
+canvasP.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle{
+    constructor(){
+        this.x = Math.random() * canvasP.width;
+        this.y = Math.random() * canvasP.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+    }
+
+    update(){
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if(this.x < 0 || this.x > canvasP.width) this.speedX *= -1;
+        if(this.y < 0 || this.y > canvasP.height) this.speedY *= -1;
+    }
+
+    draw(){
+        ctxP.fillStyle = "rgba(212,175,55,0.7)";
+        ctxP.beginPath();
+        ctxP.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctxP.fill();
+    }
+}
+
+function initParticles(){
+    particlesArray = [];
+    for(let i=0;i<80;i++){
+        particlesArray.push(new Particle());
+    }
+}
+
+function animateParticles(){
+    ctxP.clearRect(0,0,canvasP.width,canvasP.height);
+
+    particlesArray.forEach(p=>{
+        p.update();
+        p.draw();
+    });
+
+    requestAnimationFrame(animateParticles);
+}
+
+initParticles();
+animateParticles();
+
+/* RESPONSIVE */
+window.addEventListener("resize",()=>{
+    canvasP.width = window.innerWidth;
+    canvasP.height = window.innerHeight;
+    initParticles();
+});
+
+
+</script>
+
+</body>
+</html>
