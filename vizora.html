@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizora Dashboard v1.4</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="vizora.css">
+
+</head>
+
+<body>
+    <div id="authModal" class="modal">
+        <div class="modal-box">
+
+            <h2>Vizora Login</h2>
+
+            <input id="email" type="email" placeholder="Email">
+
+            <input id="password" type="password" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p class="link" onclick="openRegisterModal()">
+                Create Account
+            </p>
+
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal" style="display:none;">
+        <div class="modal-box">
+
+            <h2>Create Account</h2>
+
+            <input id="regName" type="text" placeholder="Full Name">
+
+            <input id="regEmail" type="email" placeholder="Email">
+
+            <input id="regPassword" type="password" placeholder="Password">
+
+            <select id="regRole">
+                <option value="User">User</option>
+                <option value="Viewer">Viewer</option>
+            </select>
+
+            <button onclick="registerUser()">
+                Register
+            </button>
+
+            <p class="link" onclick="backToLogin()">
+                Back To Login
+            </p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">Vizora</div>
+            <div class="menu">
+                <button class="active" onclick="showDashboard()">Dashboard</button>
+                <button onclick="showAnalytics()">Analytics</button>
+                <button id="monitoringBtn" onclick="showMonitoring()">Monitoring</button>
+                <button onclick="showAlertsPage()">Alerts</button>
+                <button onclick="showLogs()">Logs</button>
+                <button id="reportsBtn" onclick="showReports()">Reports</button>
+                <button id="usersBtn" onclick="showUsers()">Users</button>
+                <button onclick="showProfile()">Profile</button>
+                <button id="settingsBtn" onclick="showSettings()">Settings</button>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="navbar">
+                <div>
+                    <h2>System Overview</h2>
+                    <p>Modern Grafana Alternative</p>
+                </div>
+
+                <div class="nav-right">
+                    <div id="clock"></div>
+                    <input class="search" placeholder="Search menu">
+                    <div class="bell" onclick="toggleAlerts()">🔔</div>
+
+                    <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+                    <div class="profile" id="themeBtn">H</div>
+                </div>
+            </div>
+            <div id="dashboardPage">
+                <div class="content">
+                    <div class="cards">
+                        <div class="card">
+                            <p>Active Servers</p>
+                            <h2 id="servers">128</h2>
+                        </div>
+                        <div class="card">
+                            <p>CPU Usage</p>
+                            <h2 id="cpu">67%</h2>
+                        </div>
+                        <div class="card">
+                            <p>Requests/min</p>
+                            <h2 id="req">24.8K</h2>
+                        </div>
+                        <div class="card">
+                            <p>System Health</p>
+                            <h2>99.9%</h2>
+                        </div>
+                    </div>
+
+                    <div class="panels">
+                        <div class="panel">
+                            <h3>Traffic Analytics</h3>
+                            <div class="chart-area"><canvas id="trafficChart"></canvas></div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>Recent Activity</h3>
+                            <p style="margin-top:15px">Server Updated</p>
+                            <p style="margin-top:15px">CPU Threshold Exceeded</p>
+                            <p style="margin-top:15px">Monitoring Synced</p>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+                        <div class="panel">
+                            <h3>Logs</h3>
+                            <div class="log">[INFO] Dashboard initialized.</div>
+                            <div class="log">[WARN] High memory usage.</div>
+                            <div class="log">[SUCCESS] API synced.</div>
+                        </div>
+
+                        <div class="panel">
+                            <h3>System Status</h3>
+                            <div>Database</div>
+                            <div class="progress">
+                                <div class="progress-fill" style="width:92%"></div>
+                            </div>
+                            <div>API Gateway</div>
+                            <div class="progress">
+                                <div class="progress-fill" style="width:88%"></div>
+                            </div>
+                            <div>Monitoring</div>
+                            <div class="progress">
+                                <div class="progress-fill" style="width:95%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="profilePage" class="panel" style="display:none;margin-top:20px;">
+                        <h3>User Profile</h3>
+
+                        <input id="profileName" placeholder="Name"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <input id="profileEmail" placeholder="Email"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <button onclick="saveProfile()"
+                            style="margin-top:15px;padding:12px 20px;background:#6366f1;color:white;border:none;border-radius:10px;">
+                            Save Profile
+                        </button>
+                    </div>
+
+                    <div id="settingsPage" class="panel" style="display:none;margin-top:20px;">
+                        <h3>Settings</h3>
+
+                        <select id="themeSelect"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border-radius:10px;">
+                            <option>Dark</option>
+                            <option>Light</option>
+                        </select>
+
+                        <button onclick="saveSettings()"
+                            style="margin-top:15px;padding:12px 20px;background:#6366f1;color:white;border:none;border-radius:10px;">
+                            Save Settings
+                        </button>
+                        <h3 style="margin-top:20px;">Alert Configuration</h3>
+
+                        <input id="cpuThreshold" type="number" placeholder="CPU Threshold %" value="80"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <input id="memoryThreshold" type="number" placeholder="Memory Threshold %" value="90"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+                    </div>
+
+                    <div id="registerPage" class="panel" style="display:none;margin-top:20px;">
+                        <h3>Create Account</h3>
+
+                        <input id="regName1" placeholder="Full Name"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <input id="regEmail2" placeholder="Email"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <input id="regPassword3" type="password" placeholder="Password"
+                            style="width:100%;padding:12px;margin-top:10px;background:#1f2937;color:white;border:none;border-radius:10px;">
+
+                        <button onclick="registerUser()"
+                            style="margin-top:15px;padding:12px 20px;background:#6366f1;color:white;border:none;border-radius:10px;">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- ANALYTICS PAGE -->
+
+            <div id="analyticsPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>Analytics Overview</h2>
+
+                    <div class="cards" style="margin-top:20px;">
+
+                        <div class="card">
+                            <p>CPU Usage</p>
+                            <h2 id="liveCpu">0%</h2>
+                        </div>
+
+                        <div class="card">
+                            <p>Memory Usage</p>
+                            <h2 id="liveMemory">0%</h2>
+                        </div>
+
+                        <div class="card">
+                            <p>Requests/min</p>
+                            <h2 id="liveRequests">0K</h2>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel" style="margin-top:20px;">
+                    <h3>CPU Analytics</h3>
+                    <div class="chart-area">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-top:20px;">
+                    <h3>Memory Analytics</h3>
+                    <div class="chart-area">
+                        <canvas id="memoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel" style="margin-top:20px;">
+                    <h3>Request Analytics</h3>
+                    <div class="chart-area">
+                        <canvas id="requestChart"></canvas>
+                    </div>
+                </div>
+
+                <button onclick="resetAnalytics()" style="
+        margin-top:20px;
+        padding:12px 20px;
+        background:#ef4444;
+        color:white;
+        border:none;
+        border-radius:10px;">
+                    Reset Analytics
+                </button>
+
+            </div>
+
+            <!-- MONITORING PAGE -->
+
+            <div id="monitoringPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>Server Monitoring</h2>
+
+                    <table style="width:100%;margin-top:20px;border-collapse:collapse;">
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>CPU</th>
+                            <th>Memory</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <tr>
+                            <td>Server-01</td>
+                            <td id="server1Status" style="color:lime;">Online</td>
+                            <td id="server1Cpu">42%</td>
+                            <td>3.2GB</td>
+                            <td>
+                                <button onclick="startServer('server1')">Start</button>
+                                <button onclick="stopServer('server1')">Stop</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Server-02</td>
+                            <td id="server2Status" style="color:red;">Offline</td>
+                            <td id="server2Cpu">0%</td>
+                            <td>0GB</td>
+                            <td>
+                                <button onclick="startServer('server2')">Start</button>
+                                <button onclick="stopServer('server2')">Stop</button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Server-03</td>
+                            <td id="server3Status" style="color:lime;">Online</td>
+                            <td id="server3Cpu">78%</td>
+                            <td>7.4GB</td>
+                            <td>
+                                <button onclick="startServer('server3')">Start</button>
+                                <button onclick="stopServer('server3')">Stop</button>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+                <button onclick="exportServers()"
+                    style="margin-top:10px;padding:10px 15px;background:#10b981;color:white;border:none;border-radius:10px;">
+                    Export Server Report
+                </button>
+
+            </div>
+
+
+            <!-- ALERTS PAGE -->
+
+            <div id="alertsPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>Alert History</h2>
+
+                    <div id="alertsHistoryContainer">
+
+                    </div>
+
+                </div>
+                <button onclick="exportAlerts()"
+                    style="margin-top:10px;padding:10px 15px;background:#10b981;color:white;border:none;border-radius:10px;">
+                    Export Alerts CSV
+                </button>
+
+            </div>
+            <div id="logsPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>System Logs</h2>
+
+                    <button onclick="clearLogs()" style="margin:10px 0;padding:10px 15px;
+        background:#ef4444;color:white;
+        border:none;border-radius:10px;">
+                        Clear Logs
+                    </button>
+
+                    <div id="logsContainer"></div>
+
+                </div>
+
+            </div>
+
+            <!-- REPORTS PAGE -->
+
+            <div id="reportsPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>Reports Center</h2>
+                    <div class="report-buttons">
+
+                        <button class="report-btn" onclick="generateReport('system')">
+                            System Report
+                        </button>
+
+                        <button class="report-btn" onclick="generateReport('analytics')">
+                            Analytics Report
+                        </button>
+
+                        <button class="report-btn" onclick="generateReport('monitoring')">
+                            Monitoring Report
+                        </button>
+
+                    </div>
+
+                    <div id="reportPreview">
+                    </div>
+
+                    <button onclick="downloadReport()" style="
+    margin-top:15px;
+    padding:12px 20px;
+    background:#10b981;
+    color:white;
+    border:none;
+    border-radius:10px;">
+                        Download Report
+                    </button>
+
+                    <div class="cards" style="margin-top:20px;">
+
+                        <div class="card">
+                            <p>Daily Reports</p>
+                            <h2>24</h2>
+                        </div>
+
+                        <div class="card">
+                            <p>Weekly Reports</p>
+                            <h2>8</h2>
+                        </div>
+
+                        <div class="card">
+                            <p>Monthly Reports</p>
+                            <h2>3</h2>
+                        </div>
+
+                    </div>
+
+                    <button onclick="exportCSV()" style="
+        margin-top:20px;
+        padding:12px 20px;
+        background:#6366f1;
+        color:white;
+        border:none;
+        border-radius:10px;">
+                        Export CSV
+                    </button>
+
+                    <table style="
+        width:100%;
+        margin-top:20px;
+        border-collapse:collapse;">
+
+                        <tr>
+                            <th>Report</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+
+                        <tr>
+                            <td>System Report</td>
+                            <td>Today</td>
+                            <td style="color:lime;">Generated</td>
+                        </tr>
+
+                        <tr>
+                            <td>Analytics Report</td>
+                            <td>Yesterday</td>
+                            <td style="color:lime;">Generated</td>
+                        </tr>
+
+                        <tr>
+                            <td>Monitoring Report</td>
+                            <td>This Week</td>
+                            <td style="color:orange;">Pending</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+            <div id="usersPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>User Management</h2>
+
+                    <div class="cards" style="margin:20px 0;">
+                        <div class="card">
+                            <p>Total Users</p>
+                            <h2 id="totalUsers">0</h2>
+                        </div>
+                    </div>
+
+                    <table style="width:100%;border-collapse:collapse;">
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">⚠ CPU usage increased on node server</div>
+
+    <div id="customAlert" class="custom-alert">
+        <div class="custom-alert-box">
+            <h3 id="alertTitle">Success</h3>
+            <p id="alertMessage">Operation completed.</p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+    <!-- STEP 6 ALERT DRAWER -->
+
+    <div id="alertDrawer" style="
+position:fixed;
+top:0;
+right:-400px;
+width:380px;
+height:100%;
+background:#111827;
+border-left:1px solid #243044;
+transition:.4s;
+z-index:99999;
+padding:20px;
+overflow-y:auto;">
+
+        <h2>
+            Alerts
+            <span id="alertCount" style="
+background:#ef4444;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;">
+                0
+            </span>
+        </h2>
+
+        <button onclick="clearAlerts()" style="
+margin-top:15px;
+padding:10px;
+width:100%;
+background:#6366f1;
+border:none;
+color:white;
+border-radius:10px;">
+            Mark All Read
+        </button>
+
+        <div id="alertList" style="margin-top:20px;">
+        </div>
+
+    </div>
+    <script src="vizora.js"></script>
+</body>
+
+</html>
