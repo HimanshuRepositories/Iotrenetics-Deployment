@@ -145,6 +145,8 @@ function login() {
             "Invalid Email or Password"
         );
     }
+
+    addNotification("User Logged In");
 }
 
 function logout() {
@@ -160,6 +162,8 @@ function logout() {
         "Logged Out",
         "You have been logged out successfully"
     );
+
+    addNotification("User Logged Out");
 }
 
 function checkRole() {
@@ -589,7 +593,7 @@ function showAnalytics() {
         "analyticsPage"
     ).style.display = "block";
 
-    if(!cpuChart){
+    if (!cpuChart) {
         initAnalyticsCharts();
     }
 }
@@ -681,6 +685,8 @@ Monitoring Report,This Week,Pending`;
         "Export Complete",
         "CSV report downloaded successfully"
     );
+
+    addNotification("CSV Report Generated");
 }
 
 function exportAlerts() {
@@ -692,6 +698,7 @@ function exportAlerts() {
     });
 
     downloadCSV(csv, "alerts-report.csv");
+    addNotification("Alerts Report Exported");
 }
 
 function exportServers() {
@@ -703,6 +710,7 @@ Server-02,Offline,0%,0GB
 Server-03,Online,78%,7.4GB`;
 
     downloadCSV(csv, "server-report.csv");
+    addNotification("Server Report Exported");
 }
 
 function downloadCSV(content, fileName) {
@@ -829,6 +837,7 @@ function startServer(serverId) {
         "Server Started",
         serverId.toUpperCase() + " is now running"
     );
+    addNotification(serverId.toUpperCase() + " Started");
 }
 
 function stopServer(serverId) {
@@ -857,6 +866,8 @@ function stopServer(serverId) {
         "Server Stopped",
         serverId.toUpperCase() + " has been stopped"
     );
+
+    addNotification(serverId.toUpperCase() + " Stopped");
 }
 // STEP 13 - USER MANAGEMENT MODULE
 
@@ -1066,13 +1077,13 @@ setInterval(() => {
 
 }, 3000);
 
-function resetAnalytics(){
+function resetAnalytics() {
 
-    cpuData = [20,30,40,50,60];
-    memoryData = [45,50,55,60,65];
-    requestData = [10,15,20,25,30];
+    cpuData = [20, 30, 40, 50, 60];
+    memoryData = [45, 50, 55, 60, 65];
+    requestData = [10, 15, 20, 25, 30];
 
-    labels = ["1","2","3","4","5"];
+    labels = ["1", "2", "3", "4", "5"];
 
     cpuChart.data.labels = [...labels];
     memoryChart.data.labels = [...labels];
@@ -1090,6 +1101,7 @@ function resetAnalytics(){
         "Analytics Reset",
         "Analytics data cleared successfully"
     );
+    addNotification("Alerts Report Exported");
 }
 
 let generatedReport = "";
@@ -1103,7 +1115,7 @@ function generateReport(type) {
     if (type === "system") {
 
         report =
-`VIZORA SYSTEM REPORT
+            `VIZORA SYSTEM REPORT
 Generated : ${time}
 
 Active Servers : ${document.getElementById("servers").innerText}
@@ -1119,7 +1131,7 @@ System Health : 99.9%
     else if (type === "analytics") {
 
         report =
-`VIZORA ANALYTICS REPORT
+            `VIZORA ANALYTICS REPORT
 Generated : ${time}
 
 CPU : ${document.getElementById("liveCpu").innerText}
@@ -1133,7 +1145,7 @@ Requests : ${document.getElementById("liveRequests").innerText}
     else if (type === "monitoring") {
 
         report =
-`VIZORA MONITORING REPORT
+            `VIZORA MONITORING REPORT
 Generated : ${time}
 
 Server-01 : ${document.getElementById("server1Status").innerText}
@@ -1201,4 +1213,122 @@ function downloadReport() {
         "Download Complete",
         "Report downloaded successfully"
     );
+}
+
+
+let notifications = [];
+
+function addNotification(message) {
+
+    notifications.unshift({
+
+        message: message,
+
+        time: new Date().toLocaleTimeString(),
+
+        read: false
+
+    });
+
+    renderNotifications();
+
+}
+
+function renderNotifications() {
+
+    const container = document.getElementById("notificationContainer");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    notifications.forEach((item, index) => {
+
+        container.innerHTML += `
+
+<div class="notification-card">
+
+<h4>${item.message}</h4>
+
+<p>${item.time}</p>
+
+<p>Status :
+<b style="color:${item.read ? "lime" : "orange"}">
+
+${item.read ? "Read" : "Unread"}
+
+</b></p>
+
+<button class="readBtn"
+
+onclick="markRead(${index})">
+
+Mark Read
+
+</button>
+
+<button class="deleteBtn"
+
+onclick="deleteNotification(${index})">
+
+Delete
+
+</button>
+
+</div>
+
+`;
+
+    });
+
+    document.getElementById("alertCount").innerText =
+
+        notifications.filter(n => !n.read).length;
+
+}
+
+function markRead(index) {
+
+    notifications[index].read = true;
+
+    renderNotifications();
+
+}
+
+function deleteNotification(index) {
+
+    notifications.splice(index, 1);
+
+    renderNotifications();
+
+}
+
+function clearNotifications() {
+
+    notifications = [];
+
+    renderNotifications();
+
+    showAlert(
+
+        "Notifications",
+
+        "All notifications cleared"
+
+    );
+
+}
+
+function showNotifications() {
+
+    hideAllPages();
+
+    document.getElementById(
+
+        "notificationsPage"
+
+    ).style.display = "block";
+
+    renderNotifications();
+
 }
