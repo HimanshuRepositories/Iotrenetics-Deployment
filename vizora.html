@@ -66,6 +66,7 @@
                 <button onclick="showAlertsPage()">Alerts</button>
                 <button onclick="showLogs()">Logs</button>
                 <button id="reportsBtn" onclick="showReports()">Reports</button>
+                <button onclick="showNotifications()">Notifications</button>
                 <button id="usersBtn" onclick="showUsers()">Users</button>
                 <button onclick="showProfile()">Profile</button>
                 <button id="settingsBtn" onclick="showSettings()">Settings</button>
@@ -461,6 +462,23 @@
                         </tr>
 
                     </table>
+
+                </div>
+
+            </div>
+
+            <div id="notificationsPage" style="display:none;">
+
+                <div class="panel">
+
+                    <h2>Notification Center</h2>
+
+                    <button onclick="clearNotifications()" class="report-btn">
+                        Clear All
+                    </button>
+
+                    <div id="notificationContainer" style="margin-top:20px;">
+                    </div>
 
                 </div>
 
